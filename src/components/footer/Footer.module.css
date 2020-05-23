@@ -1,0 +1,29 @@
+.footer {
+    padding: 20px 0;
+}
+
+.footer > .footerAuthor {
+    display: flex;
+    align-items: center;
+}
+
+.footer > .footerAuthor > .footerAuthorTitle {
+    color: #b7b7b7;
+    font-size: 28px;
+    font-weight: bold;
+    margin-right: auto;
+    font-style: normal;
+}
+
+.footer > .footerAuthor > .footerAuthorLink {
+    margin-right: 40px;
+}
+
+.footer > .footerAuthor > .footerAuthorLink:last-of-type {
+    margin-right: 0;
+}
+
+.footer > .footerAuthor > .footerAuthorLink > .footerAuthorLinkIcon {
+    font-size: 40px;
+    color: #b7b7b7;
+}
