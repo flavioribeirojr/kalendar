@@ -1,1 +1,1 @@
-export { default as WeekSlotsGenerator } from './week-slots-generator';
+export { default as CreateWeekSlotsGenerator } from './week-slots-generator';

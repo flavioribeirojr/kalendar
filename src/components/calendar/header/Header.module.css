@@ -1,0 +1,26 @@
+.calendarHead {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.calendarHead > .calendarHeadTitle {
+    font-size: 40px;
+}
+
+.calendarHead > .calendarHeadOptions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.calendarHead > .calendarHeadOptions > .calendarHeadOptionsButton {
+    background-color: transparent;
+    border: none;
+    font-size: 40px;
+    cursor: pointer;
+}
+
+.calendarHead > .calendarHeadOptions > .calendarHeadOptionsButton:not(:last-of-type) {
+    margin-right: 20px;
+}

@@ -1,0 +1,20 @@
+.monthDayCell {
+    height: 125px;
+    padding: 1rem;
+    background-color: #ebebeb;
+    cursor: pointer;
+}
+
+.monthDayCell:hover {
+    background-color: #f2f2f2;
+}
+
+.monthDayCell.differentMonth {
+    opacity: 0.5;
+}
+
+.monthDayCell > .monthDayCellDay {
+    font-size: 25px;
+    font-weight: bold;
+    color: #252525;
+}

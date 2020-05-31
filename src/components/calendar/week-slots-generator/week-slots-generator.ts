@@ -1,33 +1,34 @@
 import { CalendarDay } from '../day.type';
 
-function generateWeekSlots(dateReference: Date): Array<CalendarDay> {
-  const firstDayOfTheWeek = getStartOfTheWeek(dateReference);
-  const nextDayOfTheWeekCreator = getNextDayOfTheWeekCreator(firstDayOfTheWeek);
+type DayCreator = (date: Date) => CalendarDay;
 
-  return Array
-    .from(Array(7).keys())
-    .map(nextDayOfTheWeekCreator);
-}
+function createWeekGenerator(dayCreator: DayCreator) {
+  function generateWeekSlots(dateReference: Date): Array<CalendarDay> {
+    const firstDayOfTheWeek = getStartOfTheWeek(dateReference);
 
-function getStartOfTheWeek(dateReference: Date): Date {
-  const dateReferenceWeekDay = dateReference.getDay();
-  const startOfTheWeek = new Date(dateReference);
+    return Array
+      .from(Array(7).keys())
+      .map(createNextDayOfTheWeekDate);
 
-  startOfTheWeek.setDate(dateReference.getDate() - dateReferenceWeekDay);
-  return startOfTheWeek;
-}
-
-function getNextDayOfTheWeekCreator(firstDayOfTheWeek: Date) {
-  return function createNextDayOfTheWeekDate(indexOfDayOfTheWeek: number): CalendarDay {
-    const nextDayOfTheWeek = new Date(firstDayOfTheWeek);
-    nextDayOfTheWeek.setDate(firstDayOfTheWeek.getDate() + indexOfDayOfTheWeek);
-
-    return {
-      day: nextDayOfTheWeek
-    };
+    function getStartOfTheWeek(dateReference: Date): Date {
+      const dateReferenceWeekDay = dateReference.getDay();
+      const startOfTheWeek = new Date(dateReference);
+    
+      startOfTheWeek.setDate(dateReference.getDate() - dateReferenceWeekDay);
+      return startOfTheWeek;
+    }
+  
+    function createNextDayOfTheWeekDate(indexOfDayOfTheWeek: number): CalendarDay {
+      const nextDayOfTheWeek = new Date(firstDayOfTheWeek);
+      nextDayOfTheWeek.setDate(firstDayOfTheWeek.getDate() + indexOfDayOfTheWeek);
+  
+      return dayCreator(nextDayOfTheWeek);
+    }
   }
+
+  return {
+    generateWeekSlots
+  };
 }
 
-export default {
-  generateWeekSlots
-}
+export default createWeekGenerator;
