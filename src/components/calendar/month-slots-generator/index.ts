@@ -1,0 +1,1 @@
+export { default as MonthSlotsGenerator } from './month-slots-generator';

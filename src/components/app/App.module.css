@@ -13,22 +13,3 @@
     color: #252525;
     font-weight: 100;
 }
-
-.main::after {
-    content: '';
-    animation: textProgressiveEllipse .8s forwards;
-}
-
-@keyframes textProgressiveEllipse {
-    0% {
-        content: '.';
-    }
-
-    50% {
-        content: '..';
-    }
-
-    100% {
-        content: '...';
-    }
-}
