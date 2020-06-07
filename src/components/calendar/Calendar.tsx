@@ -12,13 +12,15 @@ import { WeekNames } from './week-names/WeekNames';
 type CalendarProps = {
   header?: Header,
   monthDayCell?: MonthDayCell,
-  defaultDate?: Date
+  defaultDate?: Date,
+  onDateSelected?: (date: Date) => void
 };
 
 export function Calendar({
   header: CalendarHeader = DefaultHeader,
   monthDayCell: MonthDayCell = DefaultMonthDayCell,
-  defaultDate = new Date()
+  defaultDate = new Date(),
+  onDateSelected = () => {}
 }: CalendarProps) {
   const { activeDate, changeToNextMonth, changeToPreviousMonth } = useCalendarState(defaultDate);
   const weekSlotGenerator = CreateWeekSlotsGenerator(createDayOfMonthGenerator(activeDate));
@@ -39,6 +41,7 @@ export function Calendar({
               <MonthDayCell
                 key={monthDaySlot.day.toDateString()}
                 day={monthDaySlot}
+                onDayClicked={onDateSelected}
               />
             ))
         }
