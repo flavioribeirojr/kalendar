@@ -7,6 +7,7 @@ import { Header, MonthDayCell } from './types';
 import { createDayOfMonthGenerator } from './month-day-creator';
 import { useCalendarState } from './useCalendarState';
 import styles from './Calendar.module.css';
+import { WeekNames } from './week-names/WeekNames';
 
 type CalendarProps = {
   header?: Header,
@@ -30,6 +31,7 @@ export function Calendar({
         changeToNextMonth={changeToNextMonth}
         changeToPreviousMonth={changeToPreviousMonth}
       />
+      <WeekNames />
       <div className={styles.calendarGrid}>
         {
           monthDaysSlots
