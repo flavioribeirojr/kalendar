@@ -1,4 +1,4 @@
-import { CalendarDay } from '../day.type';
+import { CalendarDay } from '../types';
 
 const NUMBER_OF_WEEKS = 6;
 const NUMBER_OF_DAYS_IN_WEEK = 7;
@@ -19,7 +19,7 @@ function getMonthDatesCreator(dateReference: Date) {
   const firstDayOfTheMonth = getFirstDateOfMonth(dateReference);
 
   return function createDayOfMonth(dateOfMonthIndex: number): Date {
-    const nextDayWeek = new Date();
+    const nextDayWeek = new Date(firstDayOfTheMonth);
     nextDayWeek.setDate(firstDayOfTheMonth.getDate() + (NUMBER_OF_DAYS_IN_WEEK * dateOfMonthIndex));
 
     return nextDayWeek;

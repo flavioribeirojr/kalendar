@@ -1,5 +1,5 @@
 import MonthSlotGenerator from './month-slots-generator';
-import { CalendarDay } from '../day.type';
+import { CalendarDay } from '../types';
 
 const mockedWeekGenerator = (date: Date): Array<CalendarDay> =>
   Array(7).fill({ day: new Date() });

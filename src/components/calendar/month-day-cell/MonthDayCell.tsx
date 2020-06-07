@@ -1,5 +1,5 @@
 import React from 'react';
-import { MonthDayCellProps } from '../month-day-cell.type';
+import { MonthDayCellProps } from '../types';
 import { className } from '../../../utils';
 import styles from './MonthDayCell.module.css';
 

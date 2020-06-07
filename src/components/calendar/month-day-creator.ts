@@ -1,4 +1,4 @@
-import { CalendarDay } from './day.type';
+import { CalendarDay } from './types';
 
 export function createDayOfMonthGenerator(activeMonthDate: Date) {
   return function createDay(date: Date): CalendarDay {

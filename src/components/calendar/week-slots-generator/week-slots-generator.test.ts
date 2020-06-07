@@ -1,5 +1,5 @@
 import CreateWeekSlotGenerator from './week-slots-generator';
-import { CalendarDay } from '../day.type';
+import { CalendarDay } from '../types';
 
 const mockedDayCreator = (date: Date) => ({
   day: date,

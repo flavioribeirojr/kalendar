@@ -3,21 +3,23 @@ import { MonthSlotsGenerator } from './month-slots-generator';
 import { CreateWeekSlotsGenerator } from './week-slots-generator';
 import { Header as DefaultHeader } from './header';
 import { MonthDayCell as DefaultMonthDayCell } from './month-day-cell';
-import { Header } from './header.type';
-import { MonthDayCell } from './month-day-cell.type';
+import { Header, MonthDayCell } from './types';
 import { createDayOfMonthGenerator } from './month-day-creator';
+import { useCalendarState } from './useCalendarState';
 import styles from './Calendar.module.css';
 
 type CalendarProps = {
   header?: Header,
-  monthDayCell?: MonthDayCell
+  monthDayCell?: MonthDayCell,
+  defaultDate?: Date
 };
 
 export function Calendar({
   header: CalendarHeader = DefaultHeader,
-  monthDayCell: MonthDayCell = DefaultMonthDayCell
+  monthDayCell: MonthDayCell = DefaultMonthDayCell,
+  defaultDate = new Date()
 }: CalendarProps) {
-  const activeDate = new Date();
+  const { activeDate, changeToNextMonth, changeToPreviousMonth } = useCalendarState(defaultDate);
   const weekSlotGenerator = CreateWeekSlotsGenerator(createDayOfMonthGenerator(activeDate));
   const monthDaysSlots = MonthSlotsGenerator.generateForDate(activeDate, weekSlotGenerator.generateWeekSlots);
 
@@ -25,13 +27,15 @@ export function Calendar({
     <div className={styles.calendar}>
       <CalendarHeader
         activeDate={activeDate}
+        changeToNextMonth={changeToNextMonth}
+        changeToPreviousMonth={changeToPreviousMonth}
       />
       <div className={styles.calendarGrid}>
         {
           monthDaysSlots
             .map(monthDaySlot => (
               <MonthDayCell
-                key={monthDaySlot.day.getTime()}
+                key={monthDaySlot.day.toDateString()}
                 day={monthDaySlot}
               />
             ))

@@ -1,4 +1,4 @@
-import { CalendarDay } from '../day.type';
+import { CalendarDay } from '../types';
 
 type DayCreator = (date: Date) => CalendarDay;
 
