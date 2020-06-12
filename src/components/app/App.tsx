@@ -3,6 +3,7 @@ import styles from './App.module.css';
 import { Header } from '../header';
 import { Footer } from '../footer';
 import { Calendar } from '../calendar';
+import { EventOutlet } from '../event-outlet/EventOutlet';
 
 export function App(): React.ReactElement {
   return (
@@ -10,6 +11,9 @@ export function App(): React.ReactElement {
       <Header />
       <main className={styles.main}>
         <Calendar />
+        <div className={styles.events}>
+          <EventOutlet />
+        </div>
       </main>
       <Footer />
     </div>

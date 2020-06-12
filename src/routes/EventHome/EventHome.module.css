@@ -1,0 +1,14 @@
+.eventHome {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.eventHome > .eventHomeMessage {
+    font-size: 45px;
+    font-weight: lighter;
+    color: #757575;
+    text-align: center;
+    line-height: 50px;
+}
