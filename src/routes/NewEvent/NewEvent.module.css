@@ -1,0 +1,4 @@
+.newEvent > .newEventHeader {
+    display: flex;
+    align-items: center;
+}

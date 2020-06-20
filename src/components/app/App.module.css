@@ -10,10 +10,12 @@
 .wrapper > .main {
     display: grid;
     grid-template-columns: 70% 30%;
+    grid-auto-rows: max-content;
     gap: 25px;
 }
 
 .wrapper > .main > .events {
     border-left: 4px solid #e4e4e4;
     padding-left: 25px;
+    display: flex;
 }

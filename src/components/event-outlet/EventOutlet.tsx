@@ -1,15 +1,17 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import { EventHome } from '../../routes/EventHome/EventHome';
+import { NewEvent } from '../../routes/NewEvent/NewEvent';
 
 export function EventOutlet() {
   return (
-    <Router>
-      <Switch>
-        <Route path="/">
-          <EventHome />
-        </Route>
-      </Switch>
-    </Router>
+    <Switch>
+      <Route path="/" exact>
+        <EventHome />
+      </Route>
+      <Route path="/new-event" exact>
+        <NewEvent />
+      </Route>
+    </Switch>
   );
 }

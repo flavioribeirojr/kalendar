@@ -2,10 +2,11 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-bottom: 20px;
 }
 
 .calendarHead > .calendarHeadTitle {
-    font-size: 40px;
+    font-size: 30px;
 }
 
 .calendarHead > .calendarHeadOptions {
@@ -17,7 +18,7 @@
 .calendarHead > .calendarHeadOptions > .calendarHeadOptionsButton {
     background-color: transparent;
     border: none;
-    font-size: 40px;
+    font-size: 30px;
     cursor: pointer;
 }
 
