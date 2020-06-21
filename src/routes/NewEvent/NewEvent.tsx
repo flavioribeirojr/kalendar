@@ -1,16 +1,6 @@
 import React from 'react';
-import { Icon, IconNames } from '../../components/icon';
-import styles from './NewEvent.module.css';
+import { EventForm } from '../../components/event/event-form';
 
 export function NewEvent() {
-  return (
-    <section className={styles.newEvent}>
-      <header className={styles.newEventHeader}>
-        <Icon name={IconNames.angleLeft} />
-        <h2>
-          New Event
-        </h2>
-      </header>
-    </section>
-  )
+  return <EventForm title="New Event" />;
 }

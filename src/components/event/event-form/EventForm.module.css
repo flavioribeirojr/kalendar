@@ -1,0 +1,16 @@
+.eventForm > .eventFormHeader {
+    display: flex;
+    align-items: center;
+}
+
+.eventForm > .eventFormHeader > .eventFormHeaderLink {
+    margin-right: 15px;
+}
+
+.eventForm > .eventFormHeader > .eventFormHeaderLink > .eventFormHeaderLinkIcon {
+    font-size: 22px;
+}
+
+.eventForm > .eventFormHeader > .eventFormHeaderTitle {
+    font-size: 30px;
+}
